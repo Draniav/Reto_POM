@@ -1,16 +1,9 @@
 package pages.login;
 
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Wait;
 import pages.CommunActions;
-
-import java.util.Collection;
-import java.util.Collections;
 
 
 public class LoginPage extends CommunActions {

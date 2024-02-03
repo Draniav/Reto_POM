@@ -11,4 +11,6 @@ public class Constantes {
     STRINGS CONSTANTES
      */
    public static String  TITLE="PRODUCT STORE";
+
+    public static String  passwordinicial="0000";
 }

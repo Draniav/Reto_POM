@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import pages.CommunActions;
 import pages.home.HomePage;
 import pages.login.LoginPage;
+import pages.signUp.SignUpPage;
 
 public class LandingPage extends CommunActions {
 
@@ -56,11 +57,28 @@ funciones para Logeo
         return new LoginPage(webDriver, 10);
     }
 
+    public SignUpPage openSignUpPage() {
+        clickOnElement(webDriver.findElement(logIn));
+        return new SignUpPage(webDriver, 10);
+    }
+
     public String getNombreDeLaSesion() {
 
         return getTextFromElement(webDriver.findElement(nombreDeLaSesion));
     }
+    public String getMensaje() {
 
+        return getTextFromElement(webDriver.findElement(nombreDeLaSesion));
+    }
+
+    public void clicSingUpBtn() {
+
+
+        scrollOn(webDriver.findElement(signUp));
+        clickOnElement(webDriver.findElement(signUp));
+
+
+    }
 
     public void clicRemoveBtn() {
 
@@ -87,9 +105,6 @@ funciones para Logeo
     public String getConfirmationMessage() {
         return getTextFromElement(webDriver.findElement(confirmationMessage)) + 1;
     }
-
-
-
 
 
 }

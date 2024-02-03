@@ -20,7 +20,6 @@ public class HacerLoginDefinitions extends WebUI {
     public void queElClienteNavegaHaciaLaVentanaDeLogeo() {
         try {
             generalSetup();
-            setUpLog4j2();
             landingPage = new LandingPage(driver, 10);
             landingPage.clicLogInBtn();
 

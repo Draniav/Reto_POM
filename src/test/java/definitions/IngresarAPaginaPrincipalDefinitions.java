@@ -24,7 +24,6 @@ public class IngresarAPaginaPrincipalDefinitions extends WebUI {
 
         try {
             generalSetup();
-            setUpLog4j2();
             landingPage = new LandingPage(driver, 10);
 
         } catch (Exception exception) {
@@ -51,8 +50,7 @@ public class IngresarAPaginaPrincipalDefinitions extends WebUI {
     public void podraVerElTituloDeLaPagina(String TITLE) {
 
 
-
-  try {
+        try {
             Assertions.assertTrue(
                     TITLE.contains(
                             homePage.getTitle()
@@ -65,7 +63,6 @@ public class IngresarAPaginaPrincipalDefinitions extends WebUI {
             errorManagement(exception);
             quiteDriver();
         }
-
 
 
     }

@@ -26,27 +26,30 @@ public class WebUI {
 
     protected WebDriver driver;
 
-    private void setUpWebdriver(){
-        System.setProperty(WEBDRIVER_CHROME_DRIVER,WEBDRIVER_CHROME_DRIVER_PATH);
+    private void setUpWebdriver() {
+        System.setProperty(WEBDRIVER_CHROME_DRIVER, WEBDRIVER_CHROME_DRIVER_PATH);
     }
 
 
-    private void setUpWebdriverUrl(){
+    private void setUpWebdriverUrl() {
         driver = new ChromeDriver();
         driver.get(URL_FRONT);
         driver.manage().window().maximize();
     }
-    private void setUpWebdriverUrlBack(){
+
+    private void setUpWebdriverUrlBack() {
         driver = new ChromeDriver();
         driver.get(URL_BACK);
         driver.manage().window().maximize();
     }
 
-    protected void generalSetup(){
+    protected void generalSetup() {
         setUpWebdriver();
         setUpWebdriverUrl();
+        setUpLog4j2();
     }
-    protected void generalSetupBack(){
+
+    protected void generalSetupBack() {
         setUpWebdriver();
         setUpWebdriverUrlBack();
     }
@@ -54,17 +57,18 @@ public class WebUI {
     protected void setUpLog4j2() {
         PropertyConfigurator.configure(USER_DIR.value() + LOG4J_PROPERTIES_FILE_PATH.getValue());
     }
+
     protected void quiteDriver() {
         driver.quit();
     }
 
 
-
-    public void errorManagement(Exception exception){
+    public void errorManagement(Exception exception) {
         Assertions.fail(exception.getMessage(), exception);
         LOGGER.error(exception.getMessage(), exception);
         quiteDriver();
     }
+
 
 
 
