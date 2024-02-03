@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 import static com.google.common.base.StandardSystemProperty.USER_DIR;
+import static util.Constantes.URL_BACK;
 import static util.Constantes.URL_FRONT;
 import static util.Log4jValues.LOG4J_PROPERTIES_FILE_PATH;
 
@@ -18,7 +19,7 @@ public class WebUI {
     //Ruta al Webdriver
     private static final String WEBDRIVER_CHROME_DRIVER_PATH = "src/test/resources/drivers/chromedriver.exe";
     //URL de la Landing Page
-    private static final String QA_URL = URL_FRONT;
+
 
     private static final Logger LOGGER = Logger.getLogger(WebUI.class);
 
@@ -31,14 +32,22 @@ public class WebUI {
 
     private void setUpWebdriverUrl(){
         driver = new ChromeDriver();
-        driver.get(QA_URL);
+        driver.get(URL_FRONT);
+        driver.manage().window().maximize();
+    }
+    private void setUpWebdriverUrlBack(){
+        driver = new ChromeDriver();
+        driver.get(URL_BACK);
         driver.manage().window().maximize();
     }
 
     protected void generalSetup(){
         setUpWebdriver();
         setUpWebdriverUrl();
-
+    }
+    protected void generalSetupBack(){
+        setUpWebdriver();
+        setUpWebdriverUrlBack();
     }
 
     protected void setUpLog4j2() {
