@@ -5,7 +5,6 @@ import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import org.junit.jupiter.api.Assertions;
 import pages.base.LandingPage;
-import pages.home.HomePage;
 import pages.login.LoginPage;
 import setup.WebUI;
 
@@ -44,7 +43,7 @@ public class HacerLoginDefinitions extends WebUI {
         try {
             Assertions.assertTrue(
                     Mensaje.contains(
-                            landingPage.getUser()
+                            landingPage.getNombreDeLaSesion()
                     )
             );
 

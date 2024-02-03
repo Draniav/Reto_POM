@@ -2,12 +2,9 @@ package pages.base;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import pages.CommunActions;
 import pages.home.HomePage;
 import pages.login.LoginPage;
-
-import java.util.Collections;
 
 public class LandingPage extends CommunActions {
 
@@ -59,22 +56,11 @@ funciones para Logeo
         return new LoginPage(webDriver, 10);
     }
 
-
-
-
-    public CharSequence getUserw() {
-        WebElement element = waitElement(nombreDeLaSesion);
-        return Collections.singleton(getTextFromElement(element)).toString();
-    }
-
-    public String getUser() {
+    public String getNombreDeLaSesion() {
 
         return getTextFromElement(webDriver.findElement(nombreDeLaSesion));
     }
-    public String getTitle() {
 
-        return getTextFromElement(webDriver.findElement(title));
-    }
 
     public void clicRemoveBtn() {
 
@@ -103,10 +89,7 @@ funciones para Logeo
     }
 
 
-    public String getNombreDeLaSesion() {
 
-        return getTextFromElement(webDriver.findElement(nombreDeLaSesion));
-    }
 
 
 }
