@@ -7,7 +7,6 @@ import pages.CommunActions;
 import pages.home.HomePage;
 import pages.login.LoginPage;
 
-import java.util.Collection;
 import java.util.Collections;
 
 public class LandingPage extends CommunActions {
@@ -19,7 +18,7 @@ public class LandingPage extends CommunActions {
     private By logIn = By.id("login2");
     private By signUp = By.id("signin2");
 
-    private By sessionName = By.xpath(" /html/body");
+    private By nombreDeLaSesion = By.id("nameofuser");
 
 
     private By cart = By.xpath("/html/body/div[2]/header/div[2]/div[1]/a");
@@ -63,12 +62,15 @@ funciones para Logeo
 
 
 
-    public Collection<Object> getUser() {
-        WebElement element = waitElement(sessionName);
-        return Collections.singleton(getTextFromElement(element));
+    public CharSequence getUserw() {
+        WebElement element = waitElement(nombreDeLaSesion);
+        return Collections.singleton(getTextFromElement(element)).toString();
     }
 
+    public String getUser() {
 
+        return getTextFromElement(webDriver.findElement(nombreDeLaSesion));
+    }
     public String getTitle() {
 
         return getTextFromElement(webDriver.findElement(title));
@@ -101,9 +103,9 @@ funciones para Logeo
     }
 
 
-    public String getMessages() {
+    public String getNombreDeLaSesion() {
 
-        return getTextFromElement(webDriver.findElement(sessionName));
+        return getTextFromElement(webDriver.findElement(nombreDeLaSesion));
     }
 
 

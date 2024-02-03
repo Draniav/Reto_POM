@@ -26,7 +26,7 @@ public class LoginPage extends CommunActions {
     public LoginPage(WebDriver webDriver, int seconds) {
         super(webDriver, seconds);
     }
-    public void LogIn(String emailUser, String passwordUser) {
+    public void llenarFormularioLogIn(String emailUser, String passwordUser) {
 
         typeOnTextField(webDriver.findElement(usernameTxt), emailUser);
         typeOnTextField(webDriver.findElement(passwordTxt), passwordUser);

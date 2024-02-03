@@ -6,6 +6,7 @@ import org.apache.log4j.PropertyConfigurator;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.base.LandingPage;
 
 
 import static com.google.common.base.StandardSystemProperty.USER_DIR;
@@ -64,7 +65,6 @@ public class WebUI {
         LOGGER.error(exception.getMessage(), exception);
         quiteDriver();
     }
-
 
 
 

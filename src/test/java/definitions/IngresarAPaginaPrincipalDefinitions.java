@@ -37,6 +37,7 @@ public class IngresarAPaginaPrincipalDefinitions extends WebUI {
     @Cuando("navegue en  la pagina")
     public void navegueEnLaPagina() {
 
+
         try {
             homePage = landingPage.openHomePage();
         } catch (Exception exception) {
