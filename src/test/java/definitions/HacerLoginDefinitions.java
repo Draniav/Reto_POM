@@ -4,6 +4,7 @@ import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.Alert;
 import pages.base.LandingPage;
 import pages.login.LoginPage;
 import setup.WebUI;
@@ -34,7 +35,6 @@ public class HacerLoginDefinitions extends WebUI {
     public void ingreseLasDatosUsuarioYPassword(String usuario, String password) {
         loginPage = landingPage.openLogInForm();
         loginPage.llenarFormularioLogIn(usuario, password);
-
     }
 
     @Entonces("podra ver el mensaje de bienvenida {string}")
@@ -53,7 +53,6 @@ public class HacerLoginDefinitions extends WebUI {
             errorManagement(exception);
             quiteDriver();
         }
-
 
 
     }

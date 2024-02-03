@@ -1,11 +1,12 @@
 package pages.login;
 
 
-
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Wait;
 import pages.CommunActions;
 
 import java.util.Collection;
@@ -21,16 +22,17 @@ public class LoginPage extends CommunActions {
     private By loginBtn = By.xpath("//button[text()='Log in']");
 
 
-
-
     public LoginPage(WebDriver webDriver, int seconds) {
         super(webDriver, seconds);
     }
-    public void llenarFormularioLogIn(String emailUser, String passwordUser) {
 
+    public void llenarFormularioLogIn(String emailUser, String passwordUser) {
+        clearField(webDriver.findElement(usernameTxt));
+        clearField(webDriver.findElement(passwordTxt));
         typeOnTextField(webDriver.findElement(usernameTxt), emailUser);
         typeOnTextField(webDriver.findElement(passwordTxt), passwordUser);
         clicSignInBtn();
+
 
     }
 
@@ -39,7 +41,6 @@ public class LoginPage extends CommunActions {
         scrollOn(webDriver.findElement(loginBtn));
         clickOnElement(webDriver.findElement(loginBtn));
     }
-
 
 
 }
