@@ -46,6 +46,7 @@ public class LandingPage extends CommunActions {
         return new ProductPage(webDriver, 10);
     }
     public CartPage openCartPage() {
+        webDriverImplicitWait(webDriver, 500);
         clickOnElement(webDriver.findElement(cart));
         return new CartPage(webDriver, 10);
     }

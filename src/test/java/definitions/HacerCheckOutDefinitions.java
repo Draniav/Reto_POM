@@ -1,8 +1,10 @@
 package definitions;
 
+import com.github.javafaker.Faker;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
+import model.CheckOutModel;
 import org.junit.jupiter.api.Assertions;
 import pages.base.LandingPage;
 import pages.cart.CartPage;
@@ -13,8 +15,9 @@ public class HacerCheckOutDefinitions extends WebUI {
 
     private static LandingPage landingPage;
     private static ProductPage productPage;
-
     private static CartPage cartPage;
+    CheckOutModel usuario;
+
 
     @Dado("que el usuario agrega un producto en la aplicacion")
     public void queElUsuarioAgregaUnProductoEnLaAplicacion() {
@@ -25,7 +28,7 @@ public class HacerCheckOutDefinitions extends WebUI {
             landingPage.clicEnProducto();
             productPage = landingPage.openProductPage();
             productPage.clicAddToCartBtn();
-            webDriverImplicitWait(driver, 500);
+
         } catch (Exception exception) {
             errorManagement(exception);
 
@@ -36,10 +39,10 @@ public class HacerCheckOutDefinitions extends WebUI {
     public void llenaElFormularioDeCompraExitosamente() {
         try {
             System.out.println("2");
+            driver.switchTo().alert().accept();
             cartPage = landingPage.openCartPage();
-            webDriverImplicitWait(driver, 500);
             cartPage.clicAddToCartBtn();
-
+            cartPage.llenarFormularioCorrectamente();
         } catch (Exception exception) {
             errorManagement(exception);
             quiteDriver();
@@ -54,7 +57,7 @@ public class HacerCheckOutDefinitions extends WebUI {
             webDriverImplicitWait(driver, 500);
             Assertions.assertTrue(
                     mensaje.contains(
-                            driver.switchTo().alert().getText()
+                            cartPage.getConfirmacionDeCompra()
                     )
             );
 
