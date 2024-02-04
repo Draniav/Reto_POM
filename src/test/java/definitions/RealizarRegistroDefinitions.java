@@ -37,12 +37,14 @@ public class RealizarRegistroDefinitions extends WebUI {
 
     @Cuando("ingrese las datos nuevos")
     public void ingreseLasDatosNuevos() throws InterruptedException {
-
+        try {
         signUpPage = landingPage.openSignUpPage();
-
         signUpPage.llenarFormularioSignUp(ramdomname(), passwordinicial);
+        webDriverImplicitWait(driver, 500);
+        } catch (Exception exception) {
+            errorManagement(exception);
 
-
+        }
     }
 
     @Entonces("podra ver el mensaje de {string}")

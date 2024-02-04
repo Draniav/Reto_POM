@@ -32,8 +32,14 @@ public class HacerLoginDefinitions extends WebUI {
 
     @Cuando("ingrese las datos usuario {string} y password {string}")
     public void ingreseLasDatosUsuarioYPassword(String usuario, String password) {
-        loginPage = landingPage.openLogInForm();
-        loginPage.llenarFormularioLogIn(usuario, password);
+        try {
+            loginPage = landingPage.openLogInForm();
+            loginPage.llenarFormularioLogIn(usuario, password);
+        }
+        catch  (Exception exception) {
+            errorManagement(exception);
+
+        }
     }
 
     @Entonces("podra ver el mensaje de bienvenida {string}")

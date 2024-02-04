@@ -25,7 +25,6 @@ public class CommunActions {
     protected WebDriver webDriver;
 
 
-
     public CommunActions(WebDriver webDriver, int seconds) {
         try {
             if (webDriver == null)
@@ -38,16 +37,17 @@ public class CommunActions {
     }
 
 
-
-    public WebElement waiElement(By locator){
-        WebDriverWait wait = new WebDriverWait(webDriver,Duration.ofSeconds(10));
+    public WebElement waiElement(By locator) {
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
 
-    private void webDriverImplicitWait(WebDriver driver, int seconds) {
+    protected void webDriverImplicitWait(WebDriver driver, int seconds) {
         try {
-            driver.manage().timeouts().wait(seconds);
+
+            // driver.manage().timeouts().wait(seconds);
+            Thread.sleep(seconds);
         } catch (Exception e) {
             LOGGER.warn(e.getMessage(), e);
         }
@@ -62,19 +62,19 @@ public class CommunActions {
     }
 
 
-    public void fillField(WebElement element, String value){
+    public void fillField(WebElement element, String value) {
         try {
             element.clear();
             element.sendKeys(value);
-        }catch (Exception e){
+        } catch (Exception e) {
             LOGGER.warn(e.getMessage(), e);
         }
     }
 
-    public void clearField(WebElement element){
+    public void clearField(WebElement element) {
         try {
             element.clear();
-        }catch (Exception e){
+        } catch (Exception e) {
             LOGGER.warn(e.getMessage(), e);
         }
     }
@@ -87,7 +87,6 @@ public class CommunActions {
             LOGGER.warn(e.getMessage(), e);
         }
     }
-
 
 
     protected String getTextFromElement(WebElement element) {
@@ -108,17 +107,17 @@ public class CommunActions {
         }
     }
 
-    protected List<WebElement> elements(By locator){
+    protected List<WebElement> elements(By locator) {
         return webDriver.findElements(locator);
     }
 
-    protected WebElement waitElement(By locator){
+    protected WebElement waitElement(By locator) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(webDriver)
                 .withTimeout(Duration.ofSeconds(10))
                 .pollingEvery(Duration.ofMillis(500))
                 .ignoring(NoSuchElementException.class);
 
-        return  wait.until(new Function<WebDriver, WebElement>() {
+        return wait.until(new Function<WebDriver, WebElement>() {
             public WebElement apply(WebDriver driver) {
                 return driver.findElement(locator);
             }

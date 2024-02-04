@@ -1,7 +1,7 @@
 # language: es
 Característica:  Hacer Login
 
- Como usuario  quiero ingresar a la página con  mi  usuario y  contraseña
+  Como usuario quiero ingresar a la página con mi usuario y contraseña.
 
   Escenario: Ingreso correcto como usuario
     Dado que el cliente navega hacia la ventana de logeo

@@ -69,7 +69,15 @@ public class WebUI {
         quiteDriver();
     }
 
+    protected void webDriverImplicitWait(WebDriver driver, int mil) {
+        try {
 
+            // driver.manage().timeouts().wait(seconds);
+            Thread.sleep(mil);
+        } catch (Exception e) {
+            LOGGER.warn(e.getMessage(), e);
+        }
+    }
 
 
 }

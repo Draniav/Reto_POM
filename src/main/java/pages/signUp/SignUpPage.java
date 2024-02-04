@@ -29,7 +29,8 @@ public class SignUpPage extends CommunActions {
         typeOnTextField(webDriver.findElement(usernameTxt), emailUser);
         typeOnTextField(webDriver.findElement(passwordTxt), passwordUser);
         clicSignInBtn();
-        Thread.sleep(500);
+        webDriverImplicitWait(webDriver,2);
+
 
     }
 
