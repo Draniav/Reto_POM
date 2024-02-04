@@ -1,19 +1,17 @@
-package pages.product;
+package pages.checkOut;
 
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.CommunActions;
 
-import java.util.concurrent.TimeUnit;
 
-
-public class ProductPage extends CommunActions {
+public class CheckOutPage extends CommunActions {
 
     private By addToCartBtn = By.xpath("//a[text()='Add to cart']");
 
 
-    public ProductPage(WebDriver webDriver, int seconds) {
+    public CheckOutPage(WebDriver webDriver, int seconds) {
         super(webDriver, seconds);
     }
 
@@ -22,7 +20,7 @@ public class ProductPage extends CommunActions {
 
         scrollOn(webDriver.findElement(addToCartBtn));
         clickOnElement(webDriver.findElement(addToCartBtn));
-        webDriverImplicitWait(webDriver, 500);
+
 
     }
 

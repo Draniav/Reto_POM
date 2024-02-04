@@ -3,6 +3,7 @@ package pages.base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.CommunActions;
+import pages.cart.CartPage;
 import pages.home.HomePage;
 import pages.login.LoginPage;
 import pages.product.ProductPage;
@@ -13,14 +14,11 @@ public class LandingPage extends CommunActions {
     private By home = By.xpath("//a[contains(text(),'Home ')]");
 
     private By title = By.xpath("//a[contains(text(),'PRODUCT STORE')]");
-
+    private By cart = By.id("cartur");
     private By logIn = By.id("login2");
     private By signUp = By.id("signin2");
     private By nombreDeLaSesion = By.id("nameofuser");
     private By producto1 = By.xpath("/html/body/div[5]/div/div[2]/div/div[1]/div/a/img");
-
-
-
 
 
     public LandingPage(WebDriver driver, Integer waitingTime) {
@@ -28,11 +26,11 @@ public class LandingPage extends CommunActions {
     }
 
 
-
     public HomePage openHomePage() {
         clickOnElement(webDriver.findElement(home));
         return new HomePage(webDriver, 5);
     }
+
     public SignUpPage openSignUpPage() {
         clickOnElement(webDriver.findElement(signUp));
         return new SignUpPage(webDriver, 10);
@@ -44,8 +42,12 @@ public class LandingPage extends CommunActions {
     }
 
     public ProductPage openProductPage() {
-
+        webDriverImplicitWait(webDriver, 500);
         return new ProductPage(webDriver, 10);
+    }
+    public CartPage openCartPage() {
+        clickOnElement(webDriver.findElement(cart));
+        return new CartPage(webDriver, 10);
     }
 
 
@@ -56,9 +58,6 @@ public class LandingPage extends CommunActions {
         clickOnElement(webDriver.findElement(logIn));
 
     }
-
-
-
 
 
     public String getNombreDeLaSesion() {
@@ -76,13 +75,11 @@ public class LandingPage extends CommunActions {
     }
 
     public void clicEnProducto() {
-
+        webDriverImplicitWait(webDriver, 500);
         scrollOn(webDriver.findElement(producto1));
         clickOnElement(webDriver.findElement(producto1));
 
     }
-
-
 
 
 }

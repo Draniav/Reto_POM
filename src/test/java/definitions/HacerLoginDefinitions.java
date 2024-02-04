@@ -46,6 +46,7 @@ public class HacerLoginDefinitions extends WebUI {
     public void podraVerElMensajeDeBienvenida(String Mensaje) {
 
         try {
+
             Assertions.assertTrue(
                     Mensaje.contains(
                             landingPage.getNombreDeLaSesion()
