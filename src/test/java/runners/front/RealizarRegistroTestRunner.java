@@ -1,4 +1,4 @@
-package runners;
+package runners.front;
 
 
 import io.cucumber.junit.Cucumber;
@@ -11,11 +11,11 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         publish = true,
-        features = {"src/test/resources/features/HacerCheckOut.feature"},
+        features = {"src/test/resources/features/RealizarRegistro.feature"},
         glue = {"definitions"},
         plugin = {"pretty", "html:target/cucumber-reports_Login.html"}
 )
-public class HacerCheckOutTestRunner {
+public class RealizarRegistroTestRunner {
 
 
 }
