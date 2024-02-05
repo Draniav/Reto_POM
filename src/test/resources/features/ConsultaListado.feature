@@ -5,7 +5,7 @@ Característica:  Consulta por iD
 
   Escenario: Consulta Por ID
     Dado que el usuario consuma la Api
-    Cuando usa el  numero de id "8" para realizar una busqueda
+    Cuando usa el  numero de id "4" para realizar una busqueda
     Entonces deberia recibir el codigo de estatus "200"
 
 

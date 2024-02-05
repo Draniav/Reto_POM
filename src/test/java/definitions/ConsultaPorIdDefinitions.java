@@ -1,6 +1,7 @@
 package definitions;
 
 
+import com.sun.jdi.LongValue;
 import org.junit.Assert;
 import setup.SetUpPage;
 import io.cucumber.java.es.Cuando;
@@ -20,6 +21,7 @@ public class ConsultaPorIdDefinitions extends SetUpPage {
 
     private RequestSpecification request;
     private Response response;
+    private int idVerificacion;
 
 
     @Dado("que el usuario consuma la Api")
@@ -39,7 +41,7 @@ public class ConsultaPorIdDefinitions extends SetUpPage {
     @Cuando("usa el  numero de id {string} para realizar una busqueda")
     public void usaElNumeroDeParaRealizarUnaBusqueda(String id) {
         try {
-
+            idVerificacion = Integer.parseInt(id);
             response = request.get(RESOURCE + "/" + id);
 
         } catch (Exception e) {
@@ -51,12 +53,14 @@ public class ConsultaPorIdDefinitions extends SetUpPage {
     @Entonces("deberia recibir el codigo de estatus {string}")
     public void deberiaRecibirElCodigoDeEstatus(String statusCode) {
         try {
+
             response.print();
             response
                     .then()
-                    .statusCode(Integer.parseInt(statusCode));
+                    .statusCode(Integer.parseInt(statusCode))
+                    .body("data.id", equalTo(idVerificacion));
 
-
+            System.out.println("Status Code:" + response.statusCode());
         } catch (Exception e) {
             Assertions.fail(e.getMessage());
         }

@@ -23,7 +23,7 @@ public class SetUpPage {
         RestAssured.baseURI = BASE_URL;
         RestAssured.basePath = BASE_PATH;
     //    RestAssured.filters(new RequestLoggingFilter(),new ErrorLoggingFilter(), new ResponseLoggingFilter());
-        RestAssured.filters(new ResponseLoggingFilter());
+     //   RestAssured.filters(new ResponseLoggingFilter());
         RestAssured.requestSpecification = new RequestSpecBuilder()
                 .setContentType(ContentType.JSON)
                 .build();
