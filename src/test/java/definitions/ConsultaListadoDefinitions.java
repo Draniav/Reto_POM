@@ -18,7 +18,8 @@ public class ConsultaListadoDefinitions extends SetUpPage {
 
     private RequestSpecification request;
     private Response response;
-    private int idVerificacion;
+
+    private int pageNumber, perPageNumber;
 
 
     @Dado("que el usuario consuma la Api para realizar la consultar un listado")
@@ -39,7 +40,8 @@ public class ConsultaListadoDefinitions extends SetUpPage {
     @Cuando("usa el  solicita la pagina {string} con la cantidad  {int}")
     public void usaElSolicitaLaPaginaConLaCantidad(String page, Integer cant) {
         try {
-
+            pageNumber = Integer.parseInt(page);
+            perPageNumber=cant;
             response = request.get(RESOURCE + "?page=" + page + "&per_page=" + cant);
 
         } catch (Exception e) {
@@ -53,7 +55,9 @@ public class ConsultaListadoDefinitions extends SetUpPage {
 
             response.print();
             response.then()
-                    .statusCode(Integer.parseInt(statusCode));
+                    .statusCode(Integer.parseInt(statusCode))
+                    .body("page", equalTo(pageNumber))
+                    .body("per_page", equalTo(perPageNumber));
 
         } catch (Exception e) {
             Assertions.fail(e.getMessage());
