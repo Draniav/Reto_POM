@@ -51,17 +51,16 @@ public class ConsultaPorIdDefinitions extends SetUpPage {
     @Entonces("deberia recibir el codigo de estatus {string}")
     public void deberiaRecibirElCodigoDeEstatus(String statusCode) {
         try {
-           response
-                   .then()
+            response.print();
+            response
+                    .then()
                     .statusCode(Integer.parseInt(statusCode));
-
 
 
         } catch (Exception e) {
             Assertions.fail(e.getMessage());
         }
     }
-
 
 
 }
