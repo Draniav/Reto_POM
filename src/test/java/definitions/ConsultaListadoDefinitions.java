@@ -6,6 +6,7 @@ import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Assertions;
 import setup.SetUpPage;
 
@@ -13,15 +14,15 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 
-public class ConsultaPorIdDefinitions extends SetUpPage {
+public class ConsultaListadoDefinitions extends SetUpPage {
 
     private RequestSpecification request;
     private Response response;
     private int idVerificacion;
 
 
-    @Dado("que el usuario consuma la Api")
-    public void queElUsuarioConsumaLaApi() {
+    @Dado("que el usuario consuma la Api para realizar la consultar un listado")
+    public void queElUsuarioConsumaLaApiParaRealizarLaConsultarUnListado() {
 
         try {
             generalSetUp();
@@ -32,31 +33,28 @@ public class ConsultaPorIdDefinitions extends SetUpPage {
             Assertions.fail(e.getMessage());
             System.out.println(e.getMessage());
         }
+
     }
 
-    @Cuando("usa el  numero de id {string} para realizar una busqueda")
-    public void usaElNumeroDeParaRealizarUnaBusqueda(String id) {
+    @Cuando("usa el  solicita la pagina {string} con la cantidad  {int}")
+    public void usaElSolicitaLaPaginaConLaCantidad(String page, Integer cant) {
         try {
-            idVerificacion = Integer.parseInt(id);
-            response = request.get(RESOURCE + "/" + id);
+
+            response = request.get(RESOURCE + "?page=" + page + "&per_page=" + cant);
 
         } catch (Exception e) {
             Assertions.fail(e.getMessage());
         }
     }
 
-
-    @Entonces("deberia recibir el codigo de estatus {string}")
-    public void deberiaRecibirElCodigoDeEstatus(String statusCode) {
+    @Entonces("deberia recibir el codigo de estatus {string} con respuesta de consulta")
+    public void deberiaRecibirElCodigoDeEstatusConRespuestaDeConsulta(String statusCode) {
         try {
 
             response.print();
-            response
-                    .then()
-                    .statusCode(Integer.parseInt(statusCode))
-                    .body("data.id", equalTo(idVerificacion));
+            response.then()
+                    .statusCode(Integer.parseInt(statusCode));
 
-            System.out.println("Status Code:" + response.statusCode());
         } catch (Exception e) {
             Assertions.fail(e.getMessage());
         }

@@ -1,12 +1,12 @@
 # language: es
-Característica:  Consulta por iD
+Característica:  Consulta listado
 
-  Como usuario quiero consultar un usuario registrado usando  ID
+  Como usuario quiero consultar un listado
 
-  Escenario: Consulta Por ID
-    Dado que el usuario consuma la Api
-    Cuando usa el  numero de id "4" para realizar una busqueda
-    Entonces deberia recibir el codigo de estatus "200"
+  Escenario: Consulta listado
+    Dado que el usuario consuma la Api para realizar la consultar un listado
+    Cuando usa el  solicita la pagina "2" con la cantidad  3
+    Entonces deberia recibir el codigo de estatus "200" con respuesta de consulta
 
 
 
