@@ -5,7 +5,7 @@ Característica:  Consulta listado
 
   Escenario: Consulta listado
     Dado que el usuario consuma la Api para realizar la consultar un listado
-    Cuando usa el  solicita la pagina "2" con la cantidad  3
+    Cuando el usurio solicita la pagina "2" con la cantidad  3
     Entonces deberia recibir el codigo de estatus "200" con respuesta de consulta
 
 

@@ -37,8 +37,8 @@ public class ConsultaListadoDefinitions extends SetUpPage {
 
     }
 
-    @Cuando("usa el  solicita la pagina {string} con la cantidad  {int}")
-    public void usaElSolicitaLaPaginaConLaCantidad(String page, Integer cant) {
+    @Cuando("el usurio solicita la pagina {string} con la cantidad  {int}")
+    public void elUsuraioSolicitaLaPaginaConLaCantidad(String page, Integer cant) {
         try {
             pageNumber = Integer.parseInt(page);
             perPageNumber=cant;
@@ -53,7 +53,7 @@ public class ConsultaListadoDefinitions extends SetUpPage {
     public void deberiaRecibirElCodigoDeEstatusConRespuestaDeConsulta(String statusCode) {
         try {
 
-            response.print();
+            response.body().prettyPeek();
             response.then()
                     .statusCode(Integer.parseInt(statusCode))
                     .body("page", equalTo(pageNumber))
