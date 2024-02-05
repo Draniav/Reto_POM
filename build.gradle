@@ -38,10 +38,10 @@ dependencies {
     implementation group: 'com.github.javafaker', name: 'javafaker', version: '1.0.2'
     implementation group: 'com.sikulix', name: 'sikulixapi', version: '2.0.5'
 
+    implementation 'net.masterthought:cucumber-reporting:5.5.0'
 
 
     implementation 'org.hamcrest:hamcrest-all:1.3'
-
 
 }
 
