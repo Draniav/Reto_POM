@@ -26,10 +26,10 @@ realizando validaciones al proceso de pruebas:
 
 - https://reqres.in/api-docs/
 
-      - Registrarse en el sistema
-      - Logearse en el sistema 
-      - Añadir un elemento al carrito de compras 
-      - Hacer checkout de una orden
+      - Consultar un usuario creado por ID
+      - Actualizar los datos un usuario y verificar la correcta actualización de los datos por medio de consulta 
+      - Eliminar un usuario del sistema 
+      - Consultar la lista completa de usuarios
 
 Realizar las validaciones que consideres necesarias para cada escenario, generar los
 casos de prueba en gherkin y aplicar el patrón POM para la automatización.
@@ -73,5 +73,5 @@ chrome driver (121.0.6167.85)
 
 > 1. Descargar el proyecto.  
 > 2. Ejecutar la opción build project.  
-> 3. ir a la carpeta "test".  
-> 4. hacer clic derecho y usar la opcion "Run All Test"
+> 3. ir a la carpeta src>test>java.  
+> 4. sobre la carpeta "runners" hacer clic derecho y usar la opcion "Run Test in runners".
