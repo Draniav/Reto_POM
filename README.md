@@ -57,15 +57,17 @@ chrome driver (121.0.6167.85)
 - junit: (5.8.1)
 - selenium: (4.16.1)
 - log4j: (2.17.1)
-- io.cucumber (6.11.0)
-- javafaker'(1.0.2)
+- io.cucumber: (6.11.0)
+- javafaker: (1.0.2)
+- sikulix: (2.0.5)
+- hamcrest: (1.3)
 
 
 ## Status
 
-> en Desarrollo
+> Completo
 
-> last update 2/8/2023.
+> last update 2/6/2024.
 
 ## Instrucciones
 
